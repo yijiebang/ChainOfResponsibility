@@ -1,0 +1,35 @@
+/***
+*** 设计模式：责任链模式
+***/
+
+1、首先有个消息，
+ String msg="大家好：<script>,敏感";
+ 
+ 
+将消息交给MsgProcessor 
+MsgProcessor mp=new MsgProcessor();
+mp.setMsg(msg);
+
+2.然后进行处理
+ String result=mp.process();
+ 
+3.拥有一系列处理规则
+	Filter[] filters= {new HTMLFilter(),new SesitiveFilter()}; 
+
+这些规则按照前后的关系，依次执行
+这些规则就构成了一个链条
+
+
+
+
+//升级版的责任器链
+
+
+1.main 调用    MegProcessor     的 setMsg
+2.main 调用    MegProcessor     的 setFilterChain
+3.main 调用    MegProcessor     的 process(msg)    
+            process 调用   FilterChain  的   doFIlter()
+
+
+
+ 
